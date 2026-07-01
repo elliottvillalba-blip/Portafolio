@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio - Elliot Villalba</title>
     <style>
-        /* --- ESTILOS COMPATIBLES CON GITHUB (RESETS) --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif; /* Fuetnes web seguras para evitar errores de carga */
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         html {
@@ -20,7 +19,7 @@
         body {
             background-color: #ffffff;
             color: #000000;
-            line-height: 1.6;
+            line-height: 1.4;
         }
 
         .container {
@@ -30,13 +29,10 @@
             padding: 0 20px;
         }
 
-        /* --- MENÚ DE NAVEGACIÓN --- */
+        /* --- HEADER --- */
         header {
             background-color: #ffffff;
-            border-bottom: 1px solid #e2e8f0;
-            position: sticky;
-            top: 0;
-            z-index: 999;
+            border-bottom: 1px solid #000000;
         }
 
         header .container {
@@ -48,116 +44,89 @@
 
         .logo {
             font-weight: bold;
-            font-size: 20px;
-            letter-spacing: 1px;
+            font-size: 24px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 25px;
         }
 
         nav ul li a {
             text-decoration: none;
             color: #000000;
-            font-weight: 500;
-            font-size: 15px;
+            font-size: 16px;
         }
 
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
-
-        /* --- HERO SECTION --- */
-        .hero-section {
-            padding: 80px 0;
+        /* --- HERO --- */
+        .hero {
+            padding: 60px 0;
         }
 
         .hero-intro {
             font-size: 20px;
-            font-weight: normal;
             margin-bottom: 10px;
         }
 
         .hero-title {
-            font-size: 56px;
+            font-size: 52px;
             font-weight: 800;
             line-height: 1.1;
             text-transform: uppercase;
             margin-bottom: 50px;
         }
 
-        /* Subsección Marcas */
-        .brands-block {
-            margin-top: 60px;
-            border-top: 1px solid #000000;
-            padding-top: 30px;
-        }
-
-        .brands-label {
+        .brands-title {
             font-size: 14px;
-            text-transform: uppercase;
             font-weight: bold;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .brands-grid {
             display: flex;
-            justify-content: space-between;
             gap: 20px;
         }
 
-        .brand-item {
+        .brand-box {
             flex: 1;
-            border: 2px dashed #000000;
+            border: 1px solid #000000;
             padding: 20px;
             text-align: center;
             font-weight: bold;
-            font-size: 16px;
-            background-color: #fafafa;
         }
 
-        /* --- SECCIÓN SOBRE MÍ --- */
-        .about-section {
-            padding: 80px 0;
-            border-top: 1px solid #e2e8f0;
-        }
-
-        .split-layout {
+        /* --- SOBRE MÍ --- */
+        .about {
+            padding: 60px 0;
+            border-top: 1px solid #000000;
             display: flex;
-            gap: 50px;
+            gap: 40px;
         }
 
-        .left-column {
-            width: 35%;
-        }
-
-        .right-column {
-            width: 65%;
-        }
-
-        .section-title {
-            font-size: 32px;
+        .about-title {
+            width: 30%;
+            font-size: 28px;
             font-weight: bold;
-            text-transform: uppercase;
+        }
+
+        .about-content {
+            width: 70%;
         }
 
         .about-content h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
+            font-size: 22px;
+            margin-bottom: 15px;
         }
 
         .about-content p {
-            color: #333333;
-            margin-bottom: 20px;
             font-size: 16px;
         }
 
-        /* --- SECCIÓN PROYECTOS --- */
-        .projects-section {
-            padding: 80px 0;
-            border-top: 1px solid #e2e8f0;
+        /* --- PROYECTOS --- */
+        .projects {
+            padding: 60px 0;
+            border-top: 1px solid #000000;
         }
 
         .projects-header {
@@ -167,53 +136,55 @@
             margin-bottom: 40px;
         }
 
-        .projects-header p {
-            max-width: 600px;
-            color: #333333;
+        .projects-header-left {
+            width: 70%;
         }
 
-        .btn-contact {
+        .projects-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .projects-header-left p {
+            font-size: 16px;
+        }
+
+        .btn-contact-arrow {
             text-decoration: none;
             color: #000000;
             font-weight: bold;
             font-size: 16px;
-            white-space: nowrap;
+            margin-top: 10px;
         }
 
         .projects-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 20px;
         }
 
         .project-card {
-            width: calc(50% - 15px);
-            background-color: #ffffff;
+            width: calc(50% - 10px);
             border: 1px solid #000000;
-            padding: 30px;
+            padding: 25px;
         }
 
         .project-card h4 {
-            font-size: 20px;
+            font-size: 18px;
             margin-bottom: 10px;
-            text-transform: uppercase;
         }
 
         .project-card p {
-            color: #444444;
             font-size: 14px;
         }
 
-        /* --- SECCIÓN CONTACTO --- */
-        .contact-section {
-            padding: 80px 0;
-            border-top: 1px solid #e2e8f0;
-            background-color: #fafafa;
-        }
-
-        .contact-layout {
+        /* --- CONTACTO --- */
+        .contact {
+            padding: 60px 0;
+            border-top: 1px solid #000000;
             display: flex;
-            gap: 50px;
+            gap: 40px;
         }
 
         .contact-left {
@@ -223,72 +194,75 @@
             justify-content: space-between;
         }
 
-        .contact-list {
+        .contact-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
             list-style: none;
-            margin: 30px 0;
+            margin-bottom: 30px;
         }
 
-        .contact-list li {
+        .contact-info li {
             font-size: 16px;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
-        .social-container {
+        .social-grid {
             display: flex;
             gap: 15px;
         }
 
-        .social-link {
+        .social-box {
             text-decoration: none;
             color: #000000;
             font-weight: bold;
             font-size: 18px;
             border: 1px solid #000000;
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        /* Formulario */
         .contact-right {
             width: 50%;
         }
 
         .form-group {
-            margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
+            margin-bottom: 15px;
         }
 
         .form-group label {
+            display: block;
             font-size: 14px;
             font-weight: bold;
+            margin-bottom: 5px;
         }
 
         .form-group input, 
         .form-group textarea {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             border: 1px solid #000000;
-            background-color: #ffffff;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .form-group textarea {
+            height: 100px;
             resize: vertical;
-            height: 120px;
         }
 
         .btn-submit {
             background-color: #000000;
             color: #ffffff;
             border: none;
-            padding: 15px;
+            padding: 12px;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 14px;
             cursor: pointer;
             width: 100%;
             text-transform: uppercase;
@@ -296,37 +270,40 @@
 
         /* --- FOOTER --- */
         footer {
-            padding: 40px 0;
-            border-top: 1px solid #e2e8f0;
+            padding: 30px 0;
+            border-top: 1px solid #000000;
             text-align: center;
             font-size: 14px;
-            color: #555555;
         }
 
-        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .split-layout, .contact-layout {
+            .about, .contact {
                 flex-direction: column;
-                gap: 30px;
+                gap: 20px;
             }
-            .left-column, .right-column, .contact-left, .contact-right {
+            .about-title, .about-content, .contact-left, .contact-right {
                 width: 100%;
             }
             .brands-grid {
                 flex-direction: column;
+                gap: 10px;
             }
             .project-card {
                 width: 100%;
             }
-            .hero-title {
-                font-size: 38px;
+            .projects-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .projects-header-left {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAV BAR -->
+    <!-- NAVBAR -->
     <header>
         <div class="container">
             <div class="logo">LOGO</div>[cite: 2]
@@ -342,106 +319,94 @@
     </header>
 
     <!-- HERO -->
-    <section id="inicio" class="hero-section">
+    <section id="inicio" class="hero">
         <div class="container">
             <p class="hero-intro">Hola, soy Elliot</p>[cite: 2]
             <h1 class="hero-title">DISEÑADOR<br>UX/UI<br>Marcas</h1>[cite: 2]
             
-            <div class="brands-block">
-                <p class="brands-label">Marcas</p>[cite: 2]
-                <div class="brands-grid">
-                    <div class="brand-item">LOGO</div>[cite: 2]
-                    <div class="brand-item">LOGO</div>[cite: 2]
-                    <div class="brand-item">LOGO</div>[cite: 2]
-                    <div class="brand-item">LOGO</div>[cite: 2]
-                </div>
+            <div class="brands-title">Marcas</div>[cite: 2]
+            <div class="brands-grid">
+                <div class="brand-box">LOGO</div>[cite: 2]
+                <div class="brand-box">LOGO</div>[cite: 2]
+                <div class="brand-box">LOGO</div>[cite: 2]
+                <div class="brand-box">LOGO</div>[cite: 2]
             </div>
         </div>
     </section>
 
     <!-- SOBRE MÍ -->
-    <section id="sobre-mi" class="about-section">
-        <div class="container split-layout">
-            <div class="left-column">
-                <h2 class="section-title">Sobre mi</h2>[cite: 2]
-            </div>
-            <div class="right-columnabout-content">
-                <h3>Lorem Ipsum</h3>[cite: 2]
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>[cite: 2]
-            </div>
+    <section id="sobre-mi" class="container about">
+        <div class="about-title">Sobre mi</div>[cite: 2]
+        <div class="about-content">
+            <h3>Lorem Ipsum</h3>[cite: 2]
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>[cite: 2]
         </div>
     </section>
 
     <!-- PROYECTOS -->
-    <section id="proyectos" class="projects-section">
-        <div class="container">
-            <div class="projects-header">
-                <div>
-                    <h2 class="section-title" style="margin-bottom: 10px;">Proyectos</h2>[cite: 2]
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>[cite: 2]
-                </div>
-                <a href="#contacto" class="btn-contact">Contáctame →</a>[cite: 2]
+    <section id="proyectos" class="container projects">
+        <div class="projects-header">
+            <div class="projects-header-left">
+                <div class="projects-title">Proyectos</div>[cite: 2]
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>[cite: 2]
             </div>
+            <a href="#contacto" class="btn-contact-arrow">Contáctame→</a>[cite: 2]
+        </div>
 
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h4>Lorem ipsum</h4>[cite: 2]
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>[cite: 2]
-                </div>
-                <div class="project-card">
-                    <h4>Lorem ipsum dolor sit</h4>[cite: 2]
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>[cite: 2]
-                </div>
-                <div class="project-card">
-                    <h4>Lorem ipsum</h4>[cite: 2]
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>[cite: 2]
-                </div>
-                <div class="project-card">
-                    <h4>Lorem ipsum dolor sit</h4>[cite: 2]
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>[cite: 2]
-                </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h4>Lorem ipsum</h4>[cite: 2]
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>[cite: 2]
+            </div>
+            <div class="project-card">
+                <h4>Lorem ipsum dolor sit</h4>[cite: 2]
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>[cite: 2]
+            </div>
+            <div class="project-card">
+                <h4>Lorem ipsum</h4>[cite: 2]
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>[cite: 2]
+            </div>
+            <div class="project-card">
+                <h4>Lorem ipsum dolor sit</h4>[cite: 2]
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>[cite: 2]
             </div>
         </div>
     </section>
 
     <!-- CONTACTO -->
-    <section id="contacto" class="contact-section">
-        <div class="container contact-layout">
-            
-            <div class="contact-left">
-                <div>
-                    <h2 class="section-title">Contáctame</h2>[cite: 2]
-                    <ul class="contact-list">
-                        <li>elliot.correo@workmail.com</li>[cite: 2]
-                        <li>(111) 555-5555</li>[cite: 2]
-                        <li>Av 1 #35-27</li>[cite: 2]
-                        <li>Bogotá, Colombia</li>[cite: 2]
-                    </ul>
-                </div>
-                <div class="social-container">
-                    <a href="#" class="social-link">in</a>[cite: 2]
-                    <a href="#" class="social-link">Bē</a>[cite: 2]
-                </div>
+    <section id="contacto" class="container contact">
+        <div class="contact-left">
+            <div>
+                <div class="contact-title">Contáctame</div>[cite: 2]
+                <ul class="contact-info">
+                    <li>elliot.correo@workmail.com</li>[cite: 2]
+                    <li>(111) 555-5555</li>[cite: 2]
+                    <li>Av 1 #35-27</li>[cite: 2]
+                    <li>Bogotá, Colombia</li>[cite: 2]
+                </ul>
             </div>
-
-            <div class="contact-right">
-                <form onsubmit="event.preventDefault();">
-                    <div class="form-group">
-                        <label for="name">Nombre (Obligatorio)</label>[cite: 2]
-                        <input type="text" id="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Correo (Obligatorio)</label>[cite: 2]
-                        <input type="email" id="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Mensaje (Obligatorio)</label>[cite: 2]
-                        <input type="text" id="message" required>
-                    </div>
-                    <button type="submit" class="btn-submit">ENVIAR ►</button>[cite: 2]
-                </form>
+            <div class="social-grid">
+                <a href="#" class="social-box">in</a>[cite: 2]
+                <a href="#" class="social-box">Bē</a>[cite: 2]
             </div>
+        </div>
 
+        <div class="contact-right">
+            <form onsubmit="event.preventDefault();">
+                <div class="form-group">
+                    <label for="name">Nombre (Obligatorio)</label>[cite: 2]
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo (Obligatorio)</label>[cite: 2]
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje (Obligatorio)</label>[cite: 2]
+                    <textarea id="message" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">ENVIAR ►</button>[cite: 2]
+            </form>
         </div>
     </section>
 
