@@ -4,22 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio - Elliot Villalba</title>
+    <!-- Importación de tipografía moderna para diseñadores UX/UI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
-        /* --- VARIABLES Y CONFIGURACIÓN BASE --- */
+        /* --- PALETA DE COLORES Y VARIABLES (Diseño de Interfaz) --- */
+        :root {
+            --bg-main: #0b0f19;          /* Fondo oscuro profundo */
+            --bg-card: #131a2c;          /* Fondo de tarjetas de proyectos */
+            --bg-input: #1e293b;         /* Fondo de campos del formulario */
+            --accent-color: #38bdf8;     /* Azul brillante/Cyan para enlaces activos y detalles */
+            --text-primary: #f8fafc;     /* Texto principal claro */
+            --text-secondary: #94a3b8;   /* Texto secundario/Lorem Ipsum */
+            --border-subtle: #334155;    /* Bordes y divisiones */
+            --container-width: 1100px;
+        }
+
+        /* --- RESET Y ESTILOS GENERALES --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-        }
-
-        :root {
-            --bg-color: #f8fafc;
-            --text-dark: #0f172a;
-            --text-muted: #475569;
-            --accent-color: #000000; /* Estilo minimalista/wireframe */
-            --border-color: #cbd5e1;
-            --container-width: 1140px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         html {
@@ -27,92 +35,99 @@
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-dark);
-            line-height: 1.6;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.7;
+            letter-spacing: -0.01em;
         }
 
         .container {
             width: 100%;
             max-width: var(--container-width);
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 2rem;
         }
 
-        /* --- NAV / HEADER --- */
-        .navbar {
-            background-color: rgba(248, 250, 252, 0.8);
-            backdrop-filter: blur(8px);
+        /* --- HEADER Y NAVEGACIÓN --- */
+        .header {
+            background-color: rgba(11, 15, 25, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-subtle);
             position: sticky;
             top: 0;
-            z-index: 100;
-            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
         }
 
-        .navbar .container {
+        .header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 80px;
+            height: 90px;
         }
 
         .logo {
             font-weight: 800;
             font-size: 1.25rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            color: var(--text-primary);
+            text-decoration: none;
         }
 
-        .nav-links {
+        .nav-menu {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
-        .nav-links a {
+        .nav-item a {
             text-decoration: none;
-            color: var(--text-dark);
+            color: var(--text-secondary);
             font-weight: 500;
             font-size: 0.95rem;
-            transition: opacity 0.2s;
+            transition: color 0.3s ease;
         }
 
-        .nav-links a:hover {
-            opacity: 0.7;
+        .nav-item a:hover {
+            color: var(--text-primary);
         }
 
         /* --- HERO SECTION --- */
         .hero {
-            padding: 6rem 0 4rem;
+            padding: 7rem 0 5rem;
         }
 
         .hero-intro {
             font-size: 1.25rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
         }
 
         .hero-title {
-            font-size: 4rem;
+            font-size: 4.5rem;
             font-weight: 800;
             line-height: 1.1;
             text-transform: uppercase;
-            margin-bottom: 3rem;
+            letter-spacing: -0.03em;
+            margin-bottom: 4rem;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* Bloque de Marcas */
+        /* Bloque de Marcas Integradas */
         .brands-section {
-            margin-top: 4rem;
-            border-top: 1px solid var(--border-color);
-            padding-top: 2rem;
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 2.5rem;
         }
 
         .brands-title {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-muted);
+            letter-spacing: 2px;
+            color: var(--text-secondary);
             margin-bottom: 1.5rem;
+            font-weight: 700;
         }
 
         .brands-grid {
@@ -121,68 +136,88 @@
             gap: 1.5rem;
         }
 
-        .brand-logo-box {
-            border: 1px dashed var(--border-color);
-            padding: 1.5rem;
+        .brand-box {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px dashed var(--border-subtle);
+            border-radius: 6px;
+            padding: 1.75rem;
             text-align: center;
-            font-weight: 600;
-            color: var(--text-muted);
-            background-color: #ffffff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
         }
 
-        /* --- SOBRE MÍ --- */
+        .brand-box:hover {
+            border-color: var(--accent-color);
+            color: var(--text-primary);
+            background-color: rgba(56, 189, 248, 0.02);
+        }
+
+        /* --- SECCIÓN SOBRE MÍ --- */
         .about {
-            padding: 6rem 0;
-            border-top: 1px solid var(--border-color);
+            padding: 7rem 0;
+            border-top: 1px solid var(--border-subtle);
         }
 
-        .section-grid {
+        .grid-split {
             display: grid;
             grid-template-columns: 0.8fr 1.2fr;
-            gap: 3rem;
+            gap: 4rem;
         }
 
-        .section-heading {
-            font-size: 2rem;
-            font-weight: 700;
+        .section-label {
+            font-size: 1.8rem;
+            font-weight: 800;
             text-transform: uppercase;
+            letter-spacing: -0.02em;
         }
 
-        .about-content h3 {
+        .about-body h3 {
             font-size: 1.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
+            color: var(--text-primary);
         }
 
-        .about-content p {
-            color: var(--text-muted);
+        .about-body p {
+            color: var(--text-secondary);
             margin-bottom: 1.5rem;
+            font-size: 1.05rem;
         }
 
-        /* --- PROYECTOS --- */
+        /* --- SECCIÓN PROYECTOS --- */
         .projects {
-            padding: 6rem 0;
-            border-top: 1px solid var(--border-color);
+            padding: 7rem 0;
+            border-top: 1px solid var(--border-subtle);
         }
 
-        .projects-header {
+        .projects-top {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 3.5rem;
+            margin-bottom: 4rem;
         }
 
-        .projects-header p {
-            max-width: 500px;
-            color: var(--text-muted);
+        .projects-top p {
+            max-width: 550px;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
         }
 
-        .btn-contact-arrow {
+        .link-action {
             text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 600;
+            color: var(--accent-color);
+            font-weight: 700;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            font-size: 1.05rem;
+            transition: transform 0.3s ease;
+        }
+
+        .link-action:hover {
+            transform: translateX(5px);
         }
 
         .projects-grid {
@@ -192,138 +227,191 @@
         }
 
         .project-card {
-            background: #ffffff;
-            border: 1px solid var(--border-color);
-            padding: 2.5rem;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-color);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Contenedor de simulación de Imagen de portafolio */
+        .project-image-wrapper {
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             display: flex;
-            flex-direction: column;
-            gap: 1rem;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border-subtle);
+            color: rgba(255, 255, 255, 0.1);
+            font-size: 3rem;
+            font-weight: 800;
         }
 
-        .project-card h4 {
-            font-size: 1.25rem;
+        .project-details {
+            padding: 2.5rem;
+        }
+
+        .project-details h4 {
+            font-size: 1.35rem;
             font-weight: 700;
+            margin-bottom: 0.75rem;
         }
 
-        .project-card p {
-            color: var(--text-muted);
+        .project-details p {
+            color: var(--text-secondary);
             font-size: 0.95rem;
         }
 
-        /* --- CONTÁCTAME --- */
+        /* --- SECCIÓN CONTACTO --- */
         .contact {
-            padding: 6rem 0;
-            border-top: 1px solid var(--border-color);
-            background-color: #ffffff;
+            padding: 7rem 0;
+            border-top: 1px solid var(--border-subtle);
+            background-color: rgba(255, 255, 255, 0.01);
         }
 
         .contact-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 5rem;
         }
 
-        .contact-info {
+        .contact-meta {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            justify-content: space-between;
         }
 
-        .contact-details {
+        .contact-list {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
-            font-size: 1.05rem;
+            gap: 1rem;
+            font-size: 1.1rem;
+            margin: 2rem 0;
         }
 
-        .social-links {
+        .contact-list li strong {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        /* Redes Sociales (LinkedIn / Behance) */
+        .social-media {
             display: flex;
-            gap: 1.5rem;
-            margin-top: 1rem;
+            gap: 1rem;
         }
 
-        .social-icon {
+        .social-btn {
             text-decoration: none;
-            color: var(--text-dark);
+            color: var(--text-primary);
             font-weight: 700;
-            font-size: 1.2rem;
-            border: 1px solid var(--text-dark);
-            padding: 0.5rem 1rem;
-            transition: background 0.2s;
+            font-size: 1.1rem;
+            border: 2px solid var(--border-subtle);
+            border-radius: 8px;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
         }
 
-        .social-icon:hover {
-            background-color: var(--text-dark);
-            color: #ffffff;
+        .social-btn:hover {
+            border-color: var(--accent-color);
+            background-color: var(--accent-color);
+            color: var(--bg-main);
         }
 
-        /* Formulario */
-        .contact-form {
+        /* Formulario de Diseño */
+        .ui-form {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1.75rem;
         }
 
-        .form-group {
+        .field-group {
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
         }
 
-        .form-group label {
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .form-group input, 
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--border-color);
-            background-color: var(--bg-color);
-            font-size: 1rem;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .btn-submit {
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 1rem;
+        .field-group label {
+            font-size: 0.8rem;
             font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+        }
+
+        .field-group input, 
+        .field-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--bg-input);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .field-group input:focus, 
+        .field-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .field-group textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .submit-action {
+            background-color: var(--text-primary);
+            color: var(--bg-main);
+            border: none;
+            padding: 1.2rem;
+            font-weight: 800;
+            border-radius: 8px;
             cursor: pointer;
             letter-spacing: 1px;
-            transition: opacity 0.2s;
+            transition: all 0.3s ease;
             text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
-        .btn-submit:hover {
-            opacity: 0.9;
+        .submit-action:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
         }
 
         /* --- FOOTER --- */
         .footer {
-            padding: 3rem 0;
-            border-top: 1px solid var(--border-color);
+            padding: 3.5rem 0;
+            border-top: 1px solid var(--border-subtle);
             text-align: center;
             font-size: 0.9rem;
-            color: var(--text-muted);
-            background-color: #ffffff;
+            color: var(--text-secondary);
         }
 
-        /* --- RESPONSIRE --- */
-        @media (max-width: 868px) {
-            .section-grid, 
+        /* --- ADAPTABILIDAD (MÓVIL Y TABLETAS) --- */
+        @media (max-width: 968px) {
+            .grid-split, 
             .contact-layout,
             .projects-grid {
                 grid-template-columns: 1fr;
-                gap: 2.5rem;
+                gap: 3rem;
             }
 
             .brands-grid {
@@ -331,133 +419,165 @@
             }
 
             .hero-title {
-                font-size: 2.75rem;
+                font-size: 3rem;
             }
 
-            .projects-header {
+            .projects-top {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <header class="navbar">
+    <!-- NAV BAR -->
+    <header class="header">
         <div class="container">
-            <div class="logo">LOGO</div>
+            <a href="#" class="logo">LOGO</a>
             <nav>
-                <ul class="nav-links">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#sobre-mi">Sobre mí</a></li>
-                    <li><a href="#proyectos">Proyectos</a></li>
-                    <li><a href="#contacto">Contáctame</a></li>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a href="#sobre-mi">Sobre mí</a></li>
+                    <li class="nav-item"><a href="#proyectos">Proyectos</a></li>
+                    <li class="nav-item"><a href="#contacto">Contáctame</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <!-- HERO SECTION -->
     <section id="inicio" class="hero">
         <div class="container">
             <p class="hero-intro">Hola, soy Elliot</p>
-            <h1 class="hero-title">DISEÑADOR<br>UX/UI</h1>
+            <h1 class="hero-title">DISEÑADOR<br>UX/UI <br><span style="font-size: 0.5em; font-weight: 400; color: var(--text-secondary);">y especialista en Marcas</span></h1>
             
+            <!-- Bloque de Logotipos/Marcas del Alumno -->
             <div class="brands-section">
-                <p class="brands-title">Marcas</p>
+                <p class="brands-title">Marcas Colaboradoras</p>
                 <div class="brands-grid">
-                    <div class="brand-logo-box">LOGO</div>
-                    <div class="brand-logo-box">LOGO</div>
-                    <div class="brand-logo-box">LOGO</div>
-                    <div class="brand-logo-box">LOGO</div>
+                    <div class="brand-box">LOGO</div>
+                    <div class="brand-box">LOGO</div>
+                    <div class="brand-box">LOGO</div>
+                    <div class="brand-box">LOGO</div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- SOBRE MÍ -->
     <section id="sobre-mi" class="about">
-        <div class="container section-grid">
-            <h2 class="section-heading">Sobre mi</h2>
-            <div class="about-content">
+        <div class="container grid-split">
+            <h2 class="section-label">Sobre mi</h2>
+            <div class="about-body">
                 <h3>Lorem Ipsum</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.[cite: 1]</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Exceptuer sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.[cite: 1]</p>
             </div>
         </div>
     </section>
 
+    <!-- PROYECTOS -->
     <section id="proyectos" class="projects">
         <div class="container">
-            <div class="projects-header">
+            <div class="projects-top">
                 <div>
-                    <h2 class="section-heading">Proyectos</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <h2 class="section-label" style="margin-bottom: 0.5rem;">Proyectos</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.[cite: 1]</p>
                 </div>
-                <a href="#contacto" class="btn-contact-arrow">Contáctame →</a>
+                <a href="#contacto" class="link-action">Contáctame →</a>
             </div>
 
+            <!-- Grid con los 4 módulos correspondientes al documento visual -->
             <div class="projects-grid">
+                
+                <!-- Tarjeta 1 -->
                 <article class="project-card">
-                    <h4>Lorem ipsum</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+                    <div class="project-image-wrapper">UX</div>
+                    <div class="project-details">
+                        <h4>Lorem ipsum</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.[cite: 1]</p>
+                    </div>
                 </article>
 
+                <!-- Tarjeta 2 -->
                 <article class="project-card">
-                    <h4>Lorem ipsum dolor sit</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+                    <div class="project-thumbnail-visual"></div>
+                    <div class="project-image-wrapper" style="background: linear-gradient(135deg, #0284c7 0%, #0f172a 100%);">UI</div>
+                    <div class="project-details">
+                        <h4>Lorem ipsum dolor sit</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.[cite: 1]</p>
+                    </div>
                 </article>
 
+                <!-- Tarjeta 3 -->
                 <article class="project-card">
-                    <h4>Lorem ipsum</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+                    <div class="project-image-wrapper" style="background: linear-gradient(135deg, #4f46e5 0%, #0f172a 100%);">BRAND</div>
+                    <div class="project-details">
+                        <h4>Lorem ipsum</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.[cite: 1]</p>
+                    </div>
                 </article>
 
+                <!-- Tarjeta 4 -->
                 <article class="project-card">
-                    <h4>Lorem ipsum dolor sit</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+                    <div class="project-image-wrapper" style="background: linear-gradient(135deg, #0d9488 0%, #0f172a 100%);">CX</div>
+                    <div class="project-details">
+                        <h4>Lorem ipsum dolor sit</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.[cite: 1]</p>
+                    </div>
                 </article>
+
             </div>
         </div>
     </section>
 
+    <!-- CONTÁCTAME -->
     <section id="contacto" class="contact">
         <div class="container contact-layout">
             
-            <div class="contact-info">
-                <h2 class="section-heading">Contáctame</h2>
-                <ul class="contact-details">
-                    <li><strong>Email:</strong> elliot.correo@workmail.com</li>
-                    <li><strong>Teléfono:</strong> (111) 555-5555</li>
-                    <li><strong>Dirección:</strong> Av 1 #35-27, Bogotá, Colombia</li>
-                </ul>
-                <div class="social-links">
-                    <a href="#" class="social-icon" title="LinkedIn">in</a>
-                    <a href="#" class="social-icon" title="Behance">Bē</a>
+            <!-- Datos Informativos Reales del Documento (Izquierda) -->
+            <div class="contact-meta">
+                <div>
+                    <h2 class="section-label" style="margin-bottom: 1rem;">Contáctame</h2>
+                    <ul class="contact-list">
+                        <li><strong>Email:</strong> elliot.correo@workmail.com[cite: 1]</li>
+                        <li><strong>Teléfono:</strong> (111) 555-5555[cite: 1]</li>
+                        <li><strong>Dirección:</strong> Av 1 #35-27, Bogotá, Colombia[cite: 1]</li>
+                    </ul>
+                </div>
+                
+                <!-- Redes solicitadas en la parte inferior izquierda -->
+                <div class="social-media">
+                    <a href="#" class="social-btn" title="LinkedIn">in[cite: 1]</a>
+                    <a href="#" class="social-btn" title="Behance">Bē[cite: 1]</a>
                 </div>
             </div>
 
-            <form class="contact-form" onsubmit="event.preventDefault();">
-                <div class="form-group">
-                    <label for="nombre">Nombre (Obligatorio)</label>
-                    <input type="text" id="nombre" required>
+            <!-- Formulario de Entrada Requerido (Derecha) -->
+            <form class="ui-form" onsubmit="event.preventDefault();">
+                <div class="field-group">
+                    <label for="name">Nombre (Obligatorio)[cite: 1]</label>
+                    <input type="text" id="name" required placeholder="Tu nombre">
                 </div>
-                <div class="form-group">
-                    <label for="correo">Correo (Obligatorio)</label>
-                    <input type="email" id="correo" required>
+                <div class="field-group">
+                    <label for="email">Correo (Obligatorio)[cite: 1]</label>
+                    <input type="email" id="email" required placeholder="tu.correo@ejemplo.com">
                 </div>
-                <div class="form-group">
-                    <label for="mensaje">Mensaje (Obligatorio)</label>
-                    <textarea id="mensaje" required></textarea>
+                <div class="field-group">
+                    <label for="msg">Mensaje (Obligatorio)[cite: 1]</label>
+                    <textarea id="msg" required placeholder="Cuéntame sobre tu proyecto o idea..."></textarea>
                 </div>
-                <button type="submit" class="btn-submit">ENVIAR ►</button>
+                <button type="submit" class="submit-action">ENVIAR ►[cite: 1]</button>
             </form>
 
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
-            <p>Elliot Villalba 2026 All rights reserved®</p>
+            <p>Elliot Villalba 2026 All rights reserved®[cite: 1]</p>
         </div>
     </footer>
 
