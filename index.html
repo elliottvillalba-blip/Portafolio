@@ -3,141 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio - Elliot Villalba</title>
+    <title>Elliot Villalba | Diseñador UX/UI</title>
     <style>
-        /* --- RESET & CONFIGURACIÓN BASE --- */
+        /* --- VARIABLES DE DISEÑO PREMIUM --- */
+        :root {
+            --color-negro: #0a0a0a;
+            --color-gris-oscuro: #2d2d2d;
+            --color-gris-intermedio: #666666;
+            --color-gris-suave: #f4f4f6;
+            --color-blanco: #ffffff;
+            --fuente-sistema: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --transicion: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* --- RESET & AJUSTES GLOBALES --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: #000000;
-            background-color: #ffffff;
+            font-family: var(--fuente-sistema);
+            color: var(--color-negro);
+            background-color: var(--color-blanco);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
         .contenedor {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 30px;
         }
 
         a {
             text-decoration: none;
             color: inherit;
+            transition: var(--transicion);
         }
 
-        /* --- HEADER FAME --- */
+        /* --- HEADER Y NAVEGACIÓN --- */
         header {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            background-color: #ffffff;
-            padding: 30px 0;
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         header .contenedor {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 80px;
         }
 
         .logo {
-            font-size: 1.2rem;
-            font-weight: bold;
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 32px;
         }
 
         nav ul a {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 500;
+            color: var(--color-gris-oscuro);
         }
 
-        /* --- SECCIÓN 1: HERO / INICIO --- */
+        nav ul a:hover {
+            color: var(--color-negro);
+            transform: translateY(-1px);
+        }
+
+        /* --- SECCIÓN HERO (INICIO) --- */
         #inicio {
-            padding: 60px 0 100px 0;
+            padding: 160px 0 100px 0;
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .hero-saludo {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+            font-size: 1.5rem;
+            color: var(--color-gris-intermedio);
+            margin-bottom: 12px;
             font-weight: 400;
+            letter-spacing: -0.5px;
         }
 
         .hero-titulo {
-            font-size: 4.5rem;
-            font-weight: bold;
-            line-height: 1.1;
+            font-size: 5.5rem;
+            font-weight: 900;
+            line-height: 1.05;
             text-transform: uppercase;
-            letter-spacing: -1px;
+            letter-spacing: -3px;
+            margin-bottom: 60px;
         }
 
         .hero-titulo span {
             display: block;
+            color: #c5c5c5;
         }
 
-        .marcas-bloque {
-            margin-top: 60px;
-        }
-
-        .marcas-bloque h3 {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 25px;
+        /* Módulos de Marcas Coorporativas */
+        .marcas-bloque p {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-gris-intermedio);
+            margin-bottom: 24px;
         }
 
         .marcas-flex {
             display: flex;
-            gap: 24px;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
         .marca-caja {
-            border: 1px solid #000000;
-            padding: 18px 0;
-            width: 180px;
-            text-align: center;
-            font-weight: bold;
+            background-color: var(--color-gris-suave);
+            color: var(--color-gris-intermedio);
+            padding: 18px 35px;
+            border-radius: 8px;
+            font-weight: 700;
             font-size: 0.9rem;
             letter-spacing: 1px;
+            transition: var(--transicion);
+            border: 1px solid transparent;
         }
 
-        /* --- ESTRUCTURA DE REJILLA ASIMÉTRICA --- */
+        .marca-caja:hover {
+            background-color: var(--color-blanco);
+            border-color: rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+            color: var(--color-negro);
+        }
+
+        /* --- DISPOSICIÓN ASIMÉTRICA DE SECCIONES --- */
         .seccion-grid {
-            padding: 100px 0;
+            padding: 120px 0;
             display: grid;
             grid-template-columns: 1fr 2fr;
-            gap: 40px;
-            border-top: 1px solid #ffffff; /* Ajuste limpio */
+            gap: 60px;
+            border-top: 1px solid var(--color-gris-suave);
         }
 
         .col-titulo h2 {
-            font-size: 2.2rem;
-            font-weight: bold;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
         }
 
         /* Bloque Sobre Mí */
         .sobre-mi-contenido h3 {
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 1.6rem;
+            font-weight: 700;
             margin-bottom: 20px;
+            letter-spacing: -0.5px;
         }
 
         .sobre-mi-contenido p {
-            font-size: 1.05rem;
-            color: #000000;
-            max-width: 750px;
+            font-size: 1.15rem;
+            color: var(--color-gris-oscuro);
+            margin-bottom: 24px;
+            max-width: 720px;
         }
 
-        /* Bloque Proyectos */
+        /* Bloque Proyectos Estilizados */
         .proyectos-wrapper {
             display: flex;
             flex-direction: column;
@@ -147,82 +197,107 @@
         .proyectos-cabecera {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: flex-end;
+            gap: 20px;
         }
 
         .proyectos-subtexto {
             font-size: 1.1rem;
-            max-width: 450px;
-            color: #000000;
+            color: var(--color-gris-intermedio);
+            max-width: 460px;
         }
 
+        /* Botón Contáctame con Flecha Animada */
         .btn-contacto {
             font-size: 1.1rem;
-            font-weight: bold;
-            border-bottom: 1px solid #000000;
-            padding-bottom: 2px;
+            font-weight: 700;
+            color: var(--color-negro);
+            border-bottom: 2px solid var(--color-negro);
+            padding-bottom: 4px;
+            white-space: nowrap;
+        }
+
+        .btn-contacto:hover {
+            color: var(--color-gris-intermedio);
+            border-color: var(--color-gris-intermedio);
+            padding-right: 6px;
         }
 
         .proyectos-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 24px;
         }
 
         .proyecto-tarjeta {
-            border: 1px solid #000000;
-            padding: 40px 30px;
-            min-height: 220px;
+            background-color: var(--color-gris-suave);
+            padding: 45px 35px;
+            border-radius: 12px;
+            min-height: 240px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transicion);
+        }
+
+        .proyecto-tarjeta:hover {
+            transform: translateY(-6px);
+            background-color: #ededf2;
         }
 
         .proyecto-tarjeta h4 {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-bottom: 15px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
         }
 
         .proyecto-tarjeta p {
-            font-size: 1rem;
-            color: #000000;
+            font-size: 1.05rem;
+            color: var(--color-gris-oscuro);
         }
 
-        /* --- SECCIÓN 4: CONTÁCTAME --- */
+        /* --- SECCIÓN CONTÁCTAME --- */
         .contacto-grid {
-            padding: 100px 0;
+            padding: 120px 0;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 80px;
+            border-top: 1px solid var(--color-gris-suave);
         }
 
         .contacto-info h2 {
-            font-size: 2.2rem;
-            font-weight: bold;
+            font-size: 2.5rem;
+            font-weight: 800;
             margin-bottom: 10px;
+            letter-spacing: -1px;
         }
 
         .contacto-info h3 {
             font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 20px;
+            font-weight: 700;
+            color: var(--color-gris-intermedio);
+            margin-bottom: 24px;
         }
 
         .contacto-info p {
-            font-size: 1rem;
-            margin-bottom: 50px;
+            font-size: 1.1rem;
+            color: var(--color-gris-oscuro);
+            margin-bottom: 48px;
         }
 
         .contacto-datos {
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 24px;
         }
 
         .contacto-datos p {
+            font-size: 1.05rem;
             margin-bottom: 0;
-            font-size: 1rem;
         }
 
-        /* Formulario */
+        /* Formulario Moderno */
         .contacto-form {
             display: flex;
             flex-direction: column;
@@ -236,36 +311,64 @@
         }
 
         .form-grupo label {
-            font-size: 0.95rem;
-            font-weight: bold;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-gris-oscuro);
         }
 
         .form-grupo input, 
         .form-grupo textarea {
             width: 100%;
-            padding: 14px;
-            border: 1px solid #000000;
+            padding: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            background-color: var(--color-gris-suave);
+            border-radius: 8px;
             font-family: inherit;
             font-size: 1rem;
+            color: var(--color-negro);
             outline: none;
+            transition: var(--transicion);
         }
 
+        .form-grupo input:focus, 
+        .form-grupo textarea:focus {
+            border-color: var(--color-negro);
+            background-color: var(--color-blanco);
+            box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Botón de Enviar Interactivo Moderno */
         .btn-enviar {
             align-self: flex-start;
-            background-color: #000000;
-            color: #ffffff;
+            background-color: var(--color-negro);
+            color: var(--color-blanco);
             border: none;
-            padding: 14px 35px;
+            padding: 16px 40px;
             font-size: 1rem;
-            font-weight: bold;
+            font-weight: 700;
+            border-radius: 8px;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transicion);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-enviar:hover {
+            background-color: var(--color-gris-oscuro);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-enviar:active {
+            transform: translateY(0);
         }
 
         /* --- FOOTER --- */
         footer {
             padding: 50px 0;
-            border-top: 1px solid #000000;
-            margin-top: 40px;
+            border-top: 1px solid var(--color-gris-suave);
         }
 
         footer .contenedor {
@@ -276,36 +379,40 @@
 
         .footer-redes {
             display: flex;
-            gap: 25px;
-            font-size: 1.3rem;
-            font-weight: bold;
+            gap: 24px;
+            font-size: 1.25rem;
+            font-weight: 700;
         }
 
         .footer-copy {
             font-size: 0.95rem;
+            color: var(--color-gris-intermedio);
         }
 
-        /* --- RESPONSIU PARA CELULARES --- */
-        @media (max-width: 850px) {
+        /* --- DISEÑO COMPLETAMENTE RESPONSIVO --- */
+        @media (max-width: 900px) {
             .seccion-grid, .contacto-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
-            .proyectos-grid {
-                grid-template-columns: 1fr;
-            }
             .proyectos-cabecera {
                 flex-direction: column;
-                gap: 20px;
+                align-items: flex-start;
+                gap: 16px;
             }
             .hero-titulo {
-                font-size: 3.2rem;
+                font-size: 3.8rem;
+                letter-spacing: -1.5px;
+            }
+            header nav {
+                display: none; /* Se simplifica el menú en tabletas/móviles */
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- MENÚ SUPERIOR -->
     <header>
         <div class="contenedor">
             <div class="logo">LOGO</div>
@@ -320,8 +427,9 @@
         </div>
     </header>
 
-    <section id="inicio">
-        <div class="contenedor">
+    <!-- SECCIÓN PRINCIPAL: HERO -->
+    <main class="contenedor">
+        <section id="inicio">
             <p class="hero-saludo">Hola, soy Elliot</p>
             <h1 class="hero-titulo">
                 DISEÑADOR
@@ -330,7 +438,7 @@
             </h1>
             
             <div class="marcas-bloque">
-                <h3>Marcas</h3>
+                <p>Marcas</p>
                 <div class="marcas-flex">
                     <div class="marca-caja">LOGO</div>
                     <div class="marca-caja">LOGO</div>
@@ -338,85 +446,90 @@
                     <div class="marca-caja">LOGO</div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="sobre-mi" class="contenedor seccion-grid">
-        <div class="col-titulo">
-            <h2>Sobre mi</h2>
-        </div>
-        <div class="sobre-mi-contenido">
-            <h3>Lorem Ipsum</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        </div>
-    </section>
-
-    <section id="proyectos" class="contenedor seccion-grid">
-        <div class="col-titulo">
-            <h2>Proyectos</h2>
-        </div>
-        
-        <div class="proyectos-wrapper">
-            <div class="proyectos-cabecera">
-                <p class="proyectos-subtexto">dolore eu fugiat nulla pariatur. Except in</p>
-                <a href="#contactame" class="btn-contacto">Contáctame&rarr;</a>
+        <!-- SECCIÓN SOBRE MÍ -->
+        <section id="sobre-mi" class="seccion-grid">
+            <div class="col-titulo">
+                <h2>Sobre mi</h2>
             </div>
-
-            <div class="proyectos-grid">
-                <div class="proyecto-tarjeta">
-                    <h4>Lorem ipsum</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
-                </div>
-                <div class="proyecto-tarjeta">
-                    <h4>Lorem ipsum dolor sit</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
-                </div>
+            <div class="sobre-mi-contenido">
+                <h3>Lorem Ipsum</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contactame" class="contenedor contacto-grid">
-        <div class="contacto-info">
-            <div>
-                <h2>Contáctame</h2>
-                <h3>Lorem ipsum</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+        <!-- SECCIÓN PROYECTOS -->
+        <section id="proyectos" class="seccion-grid">
+            <div class="col-titulo">
+                <h2>Proyectos</h2>
             </div>
             
-            <div class="contacto-datos">
-                <div>
-                    <p><strong>elliot.correo@workmail.com</strong></p>
-                    <p>(111) 555-5555</p>
+            <div class="proyectos-wrapper">
+                <div class="proyectos-cabecera">
+                    <p class="proyectos-subtexto">dolore eu fugiat nulla pariatur. Except in</p>
+                    <a href="#contactame" class="btn-contacto">Contáctame &rarr;</a>
                 </div>
-                <div>
-                    <p>Av 1 #35-27</p>
-                    <p>Bogotá, Colombia</p>
+
+                <div class="proyectos-grid">
+                    <div class="proyecto-tarjeta">
+                        <h4>Lorem ipsum</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+                    </div>
+                    <div class="proyecto-tarjeta">
+                        <h4>Lorem ipsum dolor sit</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <form class="contacto-form" action="#" method="POST" onsubmit="event.preventDefault();">
-            <div class="form-grupo">
-                <label for="nombre">Nombre (Obligatorio)</label>
-                <input type="text" id="nombre" name="nombre" required>
+        <!-- SECCIÓN CONTÁCTAME -->
+        <section id="contactame" class="contacto-grid">
+            <div class="contacto-info">
+                <div>
+                    <h2>Contáctame</h2>
+                    <h3>Lorem ipsum</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+                </div>
+                
+                <div class="contacto-datos">
+                    <div>
+                        <p><strong>elliot.correo@workmail.com</strong></p>
+                        <p>(111) 555-5555</p>
+                    </div>
+                    <div>
+                        <p>Av 1 #35-27</p>
+                        <p>Bogotá, Colombia</p>
+                    </div>
+                </div>
             </div>
-            <div class="form-grupo">
-                <label for="correo">Correo (Obligatorio)</label>
-                <input type="email" id="correo" name="correo" required>
-            </div>
-            <div class="form-grupo">
-                <label for="mensaje">Mensaje (Obligatorio)</label>
-                <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="btn-enviar">ENVIAR ►</button>
-        </form>
-    </section>
 
+            <!-- FORMULARIO ESTILIZADO -->
+            <form class="contacto-form" action="#" method="POST" onsubmit="event.preventDefault();">
+                <div class="form-grupo">
+                    <label for="nombre">Nombre (Obligatorio)</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-grupo">
+                    <label for="correo">Correo (Obligatorio)</label>
+                    <input type="email" id="correo" name="correo" required>
+                </div>
+                <div class="form-grupo">
+                    <label for="mensaje">Mensaje (Obligatorio)</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn-enviar">ENVIAR ►</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
     <footer>
         <div class="contenedor">
             <div class="footer-redes">
-                <a href="#">in</a>
-                <a href="#">Bē</a>
+                <a href="#" aria-label="LinkedIn">in</a>
+                <a href="#" aria-label="Behance">Bē</a>
             </div>
             <div class="footer-copy">
                 Elliot Villalba 2026 All rights reserved&reg;
