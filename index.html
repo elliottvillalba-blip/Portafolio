@@ -5,403 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio - Elliot Villalba</title>
     <style>
-        /* --- ESTILO WIREFRAME FIEL A LA REFERENCIA --- */
+        /* --- VARIABLES Y CONFIGURACIÓN BASE --- */
+        :root {
+            --bg-principal: #ffffff;
+            --bg-secundario: #f9f9f9;
+            --texto-principal: #1a1a1a;
+            --texto-secundario: #666666;
+            --acento: #000000;
+            --fuente: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: #ffffff;
-            color: #000000;
-            line-height: 1.4;
+            font-family: var(--fuente);
+            color: var(--texto-principal);
+            background-color: var(--bg-principal);
+            line-height: 1.6;
         }
 
-        .container {
-            width: 100%;
-            max-width: 1100px;
+        .contenedor {
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* --- HEADER --- */
-        header {
-            background-color: #ffffff;
-            padding: 20px 0;
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s;
         }
 
-        header .container {
+        a:hover {
+            opacity: 0.7;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* --- HEADER / NAVEGACIÓN --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+        }
+
+        header .contenedor {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 70px;
         }
 
         .logo {
             font-weight: bold;
-            font-size: 20px;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 25px;
         }
 
-        nav ul li a {
-            text-decoration: none;
-            color: #000000;
-            font-size: 16px;
+        nav ul a {
+            font-size: 0.95rem;
+            font-weight: 500;
         }
 
-        /* --- HERO --- */
-        .hero {
-            padding: 50px 0;
-        }
-
-        .hero-intro {
-            font-size: 20px;
-            margin-bottom: 5px;
-        }
-
-        .hero-title {
-            font-size: 48px;
-            font-weight: bold;
-            line-height: 1.1;
-            margin-bottom: 40px;
-        }
-
-        .brands-grid {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .brand-box {
-            flex: 1;
-            border: 1px solid #000000;
-            padding: 15px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        /* --- SOBRE MÍ --- */
-        .about {
-            padding: 50px 0;
-            display: flex;
-            gap: 40px;
-        }
-
-        .about-title {
-            width: 25%;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .about-content {
-            width: 75%;
-        }
-
-        .about-content h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        .about-content p {
-            font-size: 15px;
-            text-align: left;
-        }
-
-        /* --- PROYECTOS --- */
-        .projects {
-            padding: 50px 0;
-        }
-
-        .projects-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 30px;
-        }
-
-        .projects-header-left {
-            width: 70%;
-        }
-
-        .projects-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .projects-header-left p {
-            font-size: 15px;
-        }
-
-        .btn-contact-arrow {
-            text-decoration: none;
-            color: #000000;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .project-card {
-            border: 1px solid #000000;
-            padding: 20px;
-        }
-
-        .project-card h4 {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .project-card p {
-            font-size: 14px;
-        }
-
-        /* --- CONTACTO --- */
-        .contact {
-            padding: 50px 0;
-            display: flex;
-            gap: 40px;
-        }
-
-        .contact-left {
-            width: 40%;
+        /* --- SECCIÓN 1: HERO / INICIO --- */
+        #inicio {
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .contact-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .contact-info {
-            list-style: none;
-            margin-bottom: 20px;
-        }
-
-        .contact-info li {
-            font-size: 15px;
-            margin-bottom: 5px;
-        }
-
-        .social-grid {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .social-box {
-            text-decoration: none;
-            color: #000000;
-            font-weight: bold;
-            font-size: 16px;
-            border: 1px solid #000000;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .contact-right {
-            width: 60%;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 13px;
-            font-weight: bold;
-            margin-bottom: 4px;
-        }
-
-        .form-group input, 
-        .form-group textarea {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #000000;
-            font-size: 14px;
-            background-color: #ffffff;
-        }
-
-        .form-group textarea {
-            height: 90px;
-            resize: vertical;
-        }
-
-        .btn-submit {
-            background-color: #000000;
-            color: #ffffff;
-            border: none;
-            padding: 10px;
-            font-weight: bold;
-            font-size: 14px;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            padding: 30px 0;
-            text-align: center;
-            font-size: 13px;
-        }
-
-        /* Responsive simple sin alterar cajas */
-        @media (max-width: 768px) {
-            .about, .contact, .projects-grid {
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-            }
-            .about-title, .about-content, .contact-left, .contact-right {
-                width: 100%;
-            }
-            .brands-grid {
-                flex-wrap: wrap;
-            }
-            .brand-box {
-                flex: unset;
-                width: calc(50% - 8px);
-            }
-            .projects-header {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- NAVBAR -->
-    <header>
-        <div class="container">
-            <div class="logo">LOGO</div>[cite: 3]
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>[cite: 3]
-                    <li><a href="#sobre-mi">Sobre mí</a></li>[cite: 3]
-                    <li><a href="#proyectos">Proyectos</a></li>[cite: 3]
-                    <li><a href="#contacto">Contáctame</a></li>[cite: 3]
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- HERO -->
-    <section id="inicio" class="hero">
-        <div class="container">
-            <p class="hero-intro">Hola, soy Elliot</p>[cite: 3]
-            <h1 class="hero-title">DISEÑADOR<br>UX/UI<br>Marcas</h1>[cite: 3]
-            
-            <div class="brands-grid">
-                <div class="brand-box">LOGO</div>[cite: 3]
-                <div class="brand-box">LOGO</div>[cite: 3]
-                <div class="brand-box">LOGO</div>[cite: 3]
-                <div class="brand-box">LOGO</div>[cite: 3]
-            </div>
-        </div>
-    </section>
-
-    <!-- SOBRE MÍ -->
-    <section id="sobre-mi" class="container about">
-        <div class="about-title">Sobre mi</div>[cite: 3]
-        <div class="about-content">
-            <h3>Lorem Ipsum</h3>[cite: 3]
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>[cite: 3]
-        </div>
-    </section>
-
-    <!-- PROYECTOS -->
-    <section id="proyectos" class="container projects">
-        <div class="projects-header">
-            <div class="projects-header-left">
-                <div class="projects-title">Proyectos</div>[cite: 3]
-                <p>dolore eu fugiat nulla pariatur. Except in</p>[cite: 3]
-            </div>
-            <a href="#contacto" class="btn-contact-arrow">Contáctame→</a>[cite: 3]
-        </div>
-
-        <div class="projects-grid">
-            <div class="project-card">
-                <h4>Lorem ipsum</h4>[cite: 3]
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>[cite: 3]
-            </div>
-            <div class="project-card">
-                <h4>Lorem ipsum dolor sit</h4>[cite: 3]
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>[cite: 3]
-            </div>
-            <div class="project-card">
-                <h4>Lorem ipsum</h4>[cite: 3]
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>[cite: 3]
-            </div>
-            <div class="project-card">
-                <h4>Lorem ipsum dolor sit</h4>[cite: 3]
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>[cite: 3]
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACTO -->
-    <section id="contacto" class="container contact">
-        <div class="contact-left">
-            <div>
-                <div class="contact-title">Contáctame</div>[cite: 3]
-                <ul class="contact-info">
-                    <li>elliot.correo@workmail.com</li>[cite: 3]
-                    <li>(111) 555-5555</li>[cite: 3]
-                    <li>Av 1 #35-27</li>[cite: 3]
-                    <li>Bogotá, Colombia</li>[cite: 3]
-                </ul>
-            </div>
-            <div class="social-grid">
-                <a href="#" class="social-box">in</a>[cite: 3]
-                <a href="#" class="social-box">Bē</a>[cite: 3]
-            </div>
-        </div>
-
-        <div class="contact-right">
-            <form onsubmit="event.preventDefault();">
-                <div class="form-group">
-                    <label for="name">Nombre (Obligatorio)</label>[cite: 3]
-                    <input type="text" id="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Correo (Obligatorio)</label>[cite: 3]
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Mensaje (Obligatorio)</label>[cite: 3]
-                    <textarea id="message" required></textarea>
-                </div>
-                <button type="submit" class="btn-submit">ENVIAR ►</button>[cite: 3]
-            </form>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <p>Elliot Villalba 2026 All rights reserved®</p>[cite: 3]
-        </div>
-    </footer>
-
-</body>
-</html>
+            justify-content: center
