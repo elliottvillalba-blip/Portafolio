@@ -138,4 +138,408 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: var(--bg-
+            background-color: var(--bg-secondary);
+            height: 80px;
+            font-weight: 700;
+            color: #ccc;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            border-radius: 4px;
+        }
+
+        /* --- SECCIÓN SOBRE MÍ --- */
+        .about {
+            padding: 100px 0;
+            background-color: var(--bg-secondary);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .about-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* --- SECCIÓN PROYECTOS --- */
+        .projects {
+            padding: 100px 0;
+        }
+
+        .projects-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 60px;
+        }
+
+        .projects-intro-text {
+            max-width: 500px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .btn-inline {
+            display: inline-flex;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 5px;
+            margin-top: 15px;
+        }
+
+        .btn-inline:hover {
+            color: var(--text-muted);
+            border-color: var(--text-muted);
+        }
+
+        /* Grid de Proyectos */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .project-card {
+            background-color: var(--bg-secondary);
+            padding: 40px;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 350px;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--border-color);
+            background-color: #ffffff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .project-placeholder {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ddd;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            border: 2px dashed #eee;
+            margin-bottom: 30px;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- SECCIÓN CONTÁCTAME --- */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .contact-details {
+            margin: 40px 0;
+        }
+
+        .contact-method {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .contact-method span {
+            display: block;
+        }
+
+        .contact-method .data {
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .social-links a:hover {
+            color: var(--text-muted);
+        }
+
+        /* Formulario de contacto */
+        .contact-form {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 6px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            background-color: #ffffff;
+            font-family: var(--font-stack);
+            font-size: 1rem;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--accent);
+            color: #ffffff;
+            border: none;
+            padding: 15px 35px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #ffffff;
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* --- RESPONSIVE / MEDIA QUERIES --- */
+        @media (max-width: 992px) {
+            .hero-main-title {
+                font-size: 3.5rem;
+            }
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .projects-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-main-title {
+                font-size: 2.8rem;
+            }
+            .brands-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-menu {
+                gap: 15px;
+            }
+            .nav-menu a {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-main-title {
+                font-size: 2.2rem;
+            }
+            .brands-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">LOGO</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li> <li><a href="#sobre-mi">Sobre mí</a></li> <li><a href="#proyectos">Proyectos</a></li> <li><a href="#contacto">Contáctame</a></li> </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-title-wrapper">
+                <p class="hero-greeting">Hola, soy Elliot</p> <h1 class="hero-main-title">
+                    <span>DISEÑADOR</span> <span class="ux-ui">UX/UI</span> <span>Marcas</span> </h1>
+            </div>
+
+            <div class="brands-grid">
+                <div class="brand-item">LOGO</div> <div class="brand-item">LOGO</div> <div class="brand-item">LOGO</div> <div class="brand-item">LOGO</div> </div>
+        </div>
+    </section>
+
+    <section id="sobre-mi" class="about">
+        <div class="container about-grid">
+            <h2 class="section-title">Sobre mi<br><small style="font-size: 1rem; color: var(--text-muted); font-weight: 400; text-transform: none;">Lorem Ipsum</small></h2>
+            <div class="about-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="proyectos" class="projects">
+        <div class="container">
+            <div class="projects-header">
+                <div>
+                    <h2 class="section-title">Proyectos</h2>
+                    <p class="projects-intro-text">dolore eu fugiat nulla pariatur. Excepturi sint</p> 
+                </div>
+                <a href="#contacto" class="btn-inline">Contáctame →</a>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-placeholder">Lorem ipsum</div> <div>
+                        <h3 class="project-title">Lorem ipsum dolor sit</h3> <p class="project-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p> </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-placeholder">Lorem ipsum</div> <div>
+                        <h3 class="project-title">Lorem</h3> <p class="project-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p> </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-placeholder">ipsum dolor sit</div> <div>
+                        <h3 class="project-title">Lorem ipsum</h3> <p class="project-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p> </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-placeholder">Lorem ipsum</div> <div>
+                        <h3 class="project-title">Lorem ipsum dolor sit amet, consectetur</h3> <p class="project-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p> </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contact">
+        <div class="container contact-grid">
+            <div class="contact-info">
+                <div>
+                    <h2 class="section-title">Contáctame</h2>
+                    <div class="contact-details">
+                        <div class="contact-method">
+                            <span>Correo & Teléfono</span>
+                            <span class="data">elliot.correo@workmail.com<br>(111) 555-5555</span>
+                        </div>
+                        <div class="contact-method">
+                            <span>Ubicación</span>
+                            <span class="data">Av 1 #35-27<br>Bogotá, Colombia</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" target="_blank">in</a>
+                    <a href="#" target="_blank">Bē</a>
+                </div>
+            </div>
+
+            <form class="contact-form" onsubmit="event.preventDefault();">
+                <div class="form-group">
+                    <label for="nombre">Nombre (Obligatorio)</label>
+                    <input type="text" id="nombre" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo (Obligatorio)</label>
+                    <input type="email" id="correo" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje (Obligatorio)</label>
+                    <textarea id="mensaje" class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">ENVIAR ►</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Elliot Villalba 2026 All rights reserved®</p>
+        </div>
+    </footer>
+
+</body>
+</html>
