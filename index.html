@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio - Elliot Villalba</title>
     <style>
-        /* --- VARIABLES Y CONFIGURACIÓN BASE --- */
+        /* --- VARIABLES DE DISEÑO Y CONFIGURACIÓN --- */
         :root {
             --bg-principal: #ffffff;
-            --bg-secundario: #f9f9f9;
-            --texto-principal: #1a1a1a;
-            --texto-secundario: #666666;
-            --acento: #000000;
-            --fuente: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --bg-secundario: #fcfcfc;
+            --texto-principal: #111111;
+            --texto-secundario: #555555;
+            --borde: #e5e5e5;
+            --fuente: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         * {
@@ -30,18 +30,19 @@
             color: var(--texto-principal);
             background-color: var(--bg-principal);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
         .contenedor {
-            max-width: 1200px;
+            max-width: 1140px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         a {
             text-decoration: none;
             color: inherit;
-            transition: opacity 0.3s;
+            transition: opacity 0.2s ease;
         }
 
         a:hover {
@@ -49,7 +50,8 @@
         }
 
         section {
-            padding: 80px 0;
+            padding: 100px 0;
+            border-bottom: 1px solid var(--borde);
         }
 
         /* --- HEADER / NAVEGACIÓN --- */
@@ -57,29 +59,29 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(5px);
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
             z-index: 1000;
-            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+            border-bottom: 1px solid var(--borde);
         }
 
         header .contenedor {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 70px;
+            height: 80px;
         }
 
-        .logo {
-            font-weight: bold;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
+        .logo-header {
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 32px;
         }
 
         nav ul a {
@@ -87,9 +89,16 @@
             font-weight: 500;
         }
 
-        /* --- SECCIÓN 1: HERO / INICIO --- */
+        /* --- SECCIÓN 1: HERO (INICIO) --- */
         #inicio {
-            min-height: 100vh;
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
-            justify-content: center
+            justify-content: center;
+            padding-top: 140px;
+        }
+
+        .hero-saludo {
+            font-size: 1.5rem;
+            color: var(--texto-secundario);
+            margin-bottom: 16
